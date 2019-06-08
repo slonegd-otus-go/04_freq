@@ -34,6 +34,19 @@ func TestCalculate(t *testing.T) {
 				"text",
 			},
 		},
+		{
+			name: "separators",
+			in: `text with many repeat words. many many, but not mutch!
+	text with tabs. is it for test?
+	yes, it's for tests`,
+			qty: 4,
+			want: []string{
+				"many",
+				"text",
+				"with",
+				"for",
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
